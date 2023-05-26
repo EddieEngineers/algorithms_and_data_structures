@@ -6,7 +6,7 @@ from data_structures.stack import Stack
 @given(st.integers())
 def test_stack_initialization(x):
     stack_no_args = Stack()
-    assert stack_no_args.is_empty
+    assert stack_no_args.is_empty()
     
     stack_value_arg = Stack(x)
     assert stack_value_arg.pop() == x
