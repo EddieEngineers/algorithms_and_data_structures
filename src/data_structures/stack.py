@@ -49,3 +49,13 @@ class Stack:
             return None
         else:
             self.pop()
+
+    def size(self) -> int:
+        return self._stack
+
+    def swap(self) -> None:
+        first = self.pop()
+        second = self.pop()
+        
+        self.push(first)
+        self.push(second)

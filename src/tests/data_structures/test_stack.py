@@ -49,3 +49,11 @@ def test_clone(x):
 
     assert stack.pop() == x
     assert cloned_stack.pop() == x
+    
+@given(st.integers(), st.integers())
+def test_swap(x, y):
+    stack = Stack([x, y])
+    stack.swap()
+    
+    assert stack.pop() == x
+    assert stack.pop() == y
