@@ -4,6 +4,20 @@ import pytest
 from data_structures.stack import Stack
 
 @given(st.integers())
+def test_stack_initialization(x):
+    stack_no_args = Stack()
+    assert stack_no_args.is_empty
+    
+    stack_value_arg = Stack(x)
+    assert stack_value_arg.pop() == x
+    
+    stack_list_arg = Stack([x])
+    assert stack_list_arg.pop() == x
+    
+    with pytest.raises(ValueError):
+        Stack(x, x)
+
+@given(st.integers())
 def test_stack_pops_pushed_values(x):
     stack = Stack()
     stack.push(x)

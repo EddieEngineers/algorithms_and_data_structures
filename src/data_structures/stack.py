@@ -10,14 +10,14 @@ class Stack:
         Stack(xs)           == _stack[x, xs]
         Stack(bad, values)  == ValueError
         """
-        if not args:
-            self._stack = []
-        elif len(*args) == 1 and isinstance(args[0], list):
+        self._stack = []
+            
+        if len(args) == 1 and isinstance(args[0], list):
             self._stack = args[0]
-        elif len(*args) == 1:
-            self._stack = args[0]
-        else:
-            return ValueError("Invalid arguments")
+        elif len(args) == 1:
+            self._stack.append(args[0])
+        elif len(args) >= 1:
+            raise ValueError("Invalid arguments")
 
     def clone(self):
         new_stack = Stack()
