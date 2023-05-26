@@ -3,11 +3,22 @@ from copy import copy
 
 class Stack:
     
-    _stack = []
-    
-    def __init__(self) -> None:
-        pass
-    
+    def __init__(self, *args) -> None:
+        """
+        Stack()             == _stack[]
+        Stack(x)            == _stack[x]
+        Stack(xs)           == _stack[x, xs]
+        Stack(bad, values)  == ValueError
+        """
+        if not args:
+            self._stack = []
+        elif len(*args) == 1 and isinstance(args[0], list):
+            self._stack = args[0]
+        elif len(*args) == 1:
+            self._stack = args[0]
+        else:
+            return ValueError("Invalid arguments")
+
     def clone(self):
         new_stack = Stack()
         new_stack._stack = copy(self._stack)
