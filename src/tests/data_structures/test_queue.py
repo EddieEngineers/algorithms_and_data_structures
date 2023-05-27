@@ -1,6 +1,6 @@
 from hypothesis import given, strategies as st
 
-from data_structures.queue import Queue
+from data_structures.queue import Queue, Deque
 
 @given(st.integers(), st.integers(), st.integers())
 def test_queue_is_FIFO(x, y, z):
@@ -27,3 +27,15 @@ def test_queue_increases_on_queue_and_decreases_on_dequeue(x, y):
     
     assert queue.dequeue() == y
     assert len(queue) == 0
+
+@given(st.integers(), st.integers(), st.integers())
+def test_deque_pushes_front_and_back(x, y, z):
+    pass
+
+@given(st.integers(), st.integers(), st.integers())
+def test_deque_pops_front_and_back(x, y, z):
+    pass
+
+@given(st.integers(), st.integers(), st.integers())
+def test_deque_peeks_front_and_back(x, y, z):
+    pass
