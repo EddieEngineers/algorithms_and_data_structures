@@ -1,6 +1,6 @@
 from hypothesis import given, strategies as st
 
-from data_structures.queue import Queue, Deque
+from data_structures.queue import Queue
 
 @given(st.integers(), st.integers(), st.integers())
 def test_queue_is_FIFO(x, y, z):
